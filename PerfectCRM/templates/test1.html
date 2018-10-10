@@ -1,0 +1,73 @@
+{#templates/base.html#}
+
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://v3.bootcss.com/examples/dashboard/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+{#    <link rel="icon" href="https://v3.bootcss.com/favicon.ico">#}
+
+    <title>PerfectCRM</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
+
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+  </head>
+<div class="container">
+    <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                <table id="table_example" class="display table table-hover table-striped">
+                <thead>
+                <tr>
+			    <th>姓名</th>
+			    <th>客户来源</th>
+			    <th>contact type</th>
+			    <th>联系方式</th>
+                <th>课程顾问</th>
+                <th>咨询内容</th>
+                <th>客户状态</th>
+                <th>创建时间</th>
+		        </tr>
+		        </thead>
+                    <tbody>
+                {% for customer in customer %}
+                <tr>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.get_source_display }}</td>
+                    <td>{{ customer.get_contact_type_display }}</td>
+                    <td>{{ customer.contact }}</td>
+                    <td>{{ customer.consultant }}</td>
+                    <td>{{ customer.consult_content }}</td>
+                    <td>{{ customer.get_status_display }}</td>
+                    <td>{{ customer.date }}</td>
+                </tr>
+                </tbody>
+                {% endfor %}
+                </table>
+                <script>
+      $(function () {
+        $('#table_example').DataTable({
+          "paging": true,       <!-- 允许分页 -->
+          "lengthChange": true, <!-- 允许改变每页显示的行数 -->
+          "searching": true,    <!-- 允许内容搜索 -->
+          "ordering": true,     <!-- 允许排序 -->
+          "info": true,         <!-- 显示信息 -->
+          "autoWidth": false    <!-- 固定宽度 -->
+        });
+      });
+    </script>
+    </main>
+</div>

@@ -1,0 +1,15 @@
+<div class="pagination">
+            <span class="step-links">
+                {% if querysets.has_previous %}
+                    <a href="?page={{ querysets.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ querysets.number }} of {{ querysets.paginator.num_pages }}.
+                </span>
+
+                {% if querysets.has_next %}
+                    <a href="?page={{ querysets.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>

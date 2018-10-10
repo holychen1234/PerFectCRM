@@ -1,0 +1,37 @@
+<!DOCTYOOT html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info Page</title>
+</head>
+<body>
+<h1>{{ customer.name }}</h1>
+<br/>
+<br/><br/>
+</body>
+</html>
+<thead>
+		                                <tr>
+			                            <th>姓名</th>
+			                            <th>客户来源</th>
+			                            <th>contact type</th>
+			                            <th>联系方式</th>
+                                        <th>课程顾问</th>
+                                        <th>咨询内容</th>
+                                        <th>客户状态</th>
+                                        <th>创建时间</th>
+		                                </tr>
+		                                </thead>
+		                                <tbody>
+                                        {% for client in clients %}
+                                        <tr>
+			                            <td>{{ customer.name }}</td>
+			                            <td>{{ customer.source }}</td>
+			                            <td>{{ customer.contact_type }}</td>
+			                            <td>{{ customer.contact }}</td>
+                                        <td>{{ customer.consultant }}</td>
+                                        <td>{{ customer.consult_content }}</td>
+                                        <td>{{ customer.status }}</td>
+                                        <td>{{ customer.date }}</td>
+		                                </tr>
+		                                </tbody>

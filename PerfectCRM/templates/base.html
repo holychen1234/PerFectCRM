@@ -1,0 +1,96 @@
+{#templates/base.html#}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://v3.bootcss.com/examples/dashboard/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+{#    <link rel="icon" href="https://v3.bootcss.com/favicon.ico">#}
+
+    <title>PerfectCRM</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+    {% block css %}{% endblock %}
+  </head>
+<header>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Dashboard</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ request.user }}<b class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                <li><a href="#">个人信息</a></li>
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                    </li>
+    </ul>
+  </div>
+</nav>
+</header>
+<aside class="main-sider">
+    <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="nav-item"><a class="nav-link active" href="/crm/">Overview<span class="sr-only">(current)</span></a></li>
+          <li class="nav nav-item nav-tabs"><a class="nav-link" href="/crm/response/">首页</a></li>
+          <li class="nav nav-item nav-tabs"><a class="nav-link" href="/crm/info/">客户库</a></li>
+        </ul>
+    </div>
+</aside>
+
+  <body>
+
+<div class="content-wrapper">
+
+      {#        主体内容全放到这里！#}
+      {% block content %}{% endblock %}
+
+  </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/jquery.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-transition.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-alert.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-modal.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-dropdown.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-tab.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-tooltip.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-popover.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-button.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-collapse.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-carousel.js"></script>
+    <script src="https://v2.bootcss.com/assets/js/bootstrap-typeahead.js"></script>
+
+{% block script %}{% endblock %}
+</body></html>
